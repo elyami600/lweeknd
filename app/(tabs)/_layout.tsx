@@ -1,45 +1,65 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { Ionicons, AntDesign, FontAwesome } from '@expo/vector-icons';
+import HomeScreen from '@/src/components/screens/HomeScreen';
+import AboutScreen from '@/src/components/screens/AboutScreen';
+import Feather from '@expo/vector-icons/Feather';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+export type RootTabParamList = {
+  Explore: undefined;
+  About: undefined;
+};
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
+const MyBottomTabNavigator = () => {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
+    
+      <Tab.Navigator
+      
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, size, color }) => {
+            let iconComponent;
+
+            switch (route.name) {
+              case 'Explore':
+                iconComponent = focused ? (
+                    <Feather name="search" size={24} color={color} />
+                ) : (
+                    <Feather name="search" size={size} ccolor={color} />
+                );
+                break;
+              case 'About':
+                iconComponent = focused ? (
+                  <FontAwesome name="heartbeat" size={size} color={color} />
+                ) : (
+                  <FontAwesome name="heartbeat" size={size} color={color} />
+                );
+                break;
+              default:
+                iconComponent = <Ionicons name="information-circle-outline" size={size} color={color} />;
+            }
+
+            return iconComponent;
           },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
+          tabBarActiveTintColor: '#ff6347', // Tomato color for active tab
+          tabBarInactiveTintColor: '#808080', // Gray for inactive tabs
+          tabBarStyle: {
+            backgroundColor: '#fff',
+            paddingBottom: 8,
+            height: 65,
+            borderTopWidth: 1,
+            borderTopColor: '#ddd',
+          },
+          headerShown: false, // Hide header for a cleaner look
+        })}
+      >
+        <Tab.Screen name="Explore"  component={HomeScreen} />
+        <Tab.Screen name="About"    component={AboutScreen} />
+      </Tab.Navigator>
+   
   );
-}
+};
+
+export default MyBottomTabNavigator;
