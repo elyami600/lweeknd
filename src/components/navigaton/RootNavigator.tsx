@@ -2,9 +2,11 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons, AntDesign, FontAwesome } from '@expo/vector-icons';
-import HomeScreen from '../screens/HomeScreen';
+// import HomeScreen from '../screens/HomeScreen';
+import UserScreen from '../screens/UsersScreen';
 import AboutScreen from '../screens/AboutScreen'
 import Feather from '@expo/vector-icons/Feather';
+
 
 export type RootTabParamList = {
   Explore: undefined;
@@ -25,7 +27,7 @@ const MyBottomTabNavigator = () => {
             switch (route.name) {
               case 'Explore':
                 iconComponent = focused ? (
-                    <Feather name="search" size={24} color={color} />
+                    <Feather name="search" size={size} color={color} />
                 ) : (
                     <Feather name="search" size={size} ccolor={color} />
                 );
@@ -55,7 +57,7 @@ const MyBottomTabNavigator = () => {
           headerShown: false, // Hide header for a cleaner look
         })}
       >
-        <Tab.Screen name="Explore"  component={HomeScreen} />
+        <Tab.Screen name="Explore"  component={UserScreen} />
         <Tab.Screen name="About"    component={AboutScreen} />
       </Tab.Navigator>
    

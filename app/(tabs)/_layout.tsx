@@ -2,9 +2,13 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons, AntDesign, FontAwesome } from '@expo/vector-icons';
-import HomeScreen from '@/src/components/screens/HomeScreen';
+import HomeScreen from'@/src/components/screens/HomeScreen';
 import AboutScreen from '@/src/components/screens/AboutScreen';
+import UserScreen from '@/src/components/screens/UsersScreen';
+import DashboardScreen from '@/src/components/screens/DashboardScreen';
+
 import Feather from '@expo/vector-icons/Feather';
+import { users } from '@/src/utils/mockData';
 
 export type RootTabParamList = {
   Explore: undefined;
@@ -55,7 +59,7 @@ const MyBottomTabNavigator = () => {
           headerShown: false, // Hide header for a cleaner look
         })}
       >
-        <Tab.Screen name="Explore"  component={HomeScreen} />
+        <Tab.Screen name="Explore"  component={DashboardScreen} />
         <Tab.Screen name="About"    component={AboutScreen} />
       </Tab.Navigator>
    

@@ -1,35 +1,32 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+// import React from "react";
+// import { NavigationContainer } from "@react-navigation/native";
+// import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
+// import { SafeAreaProvider } from "react-native-safe-area-context";
+// import { Provider } from "react-redux";
+// import store from "@/src/store/index";
+// import RootNavigator from "@/src/components/navigaton/RootNavigator"
 
-const HomeScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Barber Home</Text>
-      <Text style={styles.stat}>Total Appointments: 15</Text>
-      <Text style={styles.stat}>Upcoming: 5</Text>
-      <Text style={styles.stat}>Completed: 8</Text>
-      <Text style={styles.stat}>Canceled: 2</Text>
-    </View>
-  );
-};
+// const App: React.FC = () => {
+//   return (
+//     <Provider store={store}>
+//       <SafeAreaProvider>
+//         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+//         <NavigationContainer>
+//           <SafeAreaView style={styles.container}>
+//             <RootNavigator />
+//           </SafeAreaView>
+//         </NavigationContainer>
+//       </SafeAreaProvider>
+//     </Provider>
+//   );
+// };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 15,
-  },
-  stat: {
-    fontSize: 18,
-    marginBottom: 10,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//   },
+// });
 
-export default HomeScreen;
+// export default App;
+

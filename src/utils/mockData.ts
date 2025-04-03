@@ -53,7 +53,7 @@ export interface User {
       password: "password123",
       email: "johndoe@example.com",
       role: "guest",
-      avatarURL: "https://i.pravatar.cc/250?u=johndoe@example.com"
+      avatarURL: "https://via.placeholder.com/250"
     }
   ];
   
@@ -67,7 +67,9 @@ export interface User {
       services: ["Haircut", "Beard Trim"],
       ratings: [4, 5, 3, 4, 5],
       average_rating: 4.2,
-      avatarURL: "https://i.pravatar.cc/250?u=classiccuts@example.com"
+      avatarURL:"https://i.pravatar.cc/250?u=annestylist@example.com",
+
+
     }
   ];
   
@@ -106,4 +108,30 @@ export interface User {
       status: "confirmed"
     }
   ];
+   
+  export function _getUsers(): Promise<User[]> {
+    return Promise.resolve(users);
+  }
   
+  // Get a single user by email (ID)
+  export function _getUser(userId: string): Promise<User> {
+    return new Promise((resolve, reject) => {
+      const user = users.find((u) => u.email === userId);
+      if (!user) {
+        return reject("User not found.");
+      }
+      resolve(user);
+    });
+  }
+
+  export function _getServiceCenters(): Promise<ServiceCenter[]> {
+    return Promise.resolve(serviceCenters);
+  }
+
+  export function _getStylist(): Promise<Stylist[]> {
+    return Promise.resolve(stylists);
+  }
+
+  export function _getBooking(): Promise<Booking[]> {
+    return Promise.resolve(bookings);
+  }
