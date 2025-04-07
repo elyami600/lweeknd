@@ -29,7 +29,7 @@ const MyBottomTabNavigator = () => {
             switch (route.name) {
               case 'Explore':
                 iconComponent = focused ? (
-                    <Feather name="search" size={24} color={color} />
+                    <Feather name="search" size={size} color={color} />
                 ) : (
                     <Feather name="search" size={size} ccolor={color} />
                 );
