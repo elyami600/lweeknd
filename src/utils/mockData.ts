@@ -26,6 +26,7 @@ export interface Stylist {
   profession: string;
   shop_id: string | null;
   services: string[];
+  avatarURL: string;
   ratings: number[];
   average_rating: number;
   available_slots: {
@@ -140,6 +141,7 @@ export const stylists: Stylist[] = [
     profession: "Barber",
     shop_id: "classiccuts",
     services: ["Haircut", "Beard Trim"],
+    avatarURL: "https://i.pravatar.cc/250?u=beautyglow",
     ratings: [5, 4, 5],
     average_rating: 4.7,
     available_slots: [
@@ -154,6 +156,7 @@ export const stylists: Stylist[] = [
     profession: "Hair Stylist",
     shop_id: "classiccuts",
     services: ["Haircut", "Hair Styling"],
+    avatarURL: "https://i.pravatar.cc/250?u=ashleystyle",
     ratings: [4, 5, 5],
     average_rating: 4.7,
     available_slots: [
@@ -168,8 +171,9 @@ export const stylists: Stylist[] = [
     profession: "Beauty Specialist",
     shop_id: "beautyglow",
     services: ["Facial", "Makeup"],
-    ratings: [5, 4, 5],
+    avatarURL: "https://i.pravatar.cc/250?u=michaelblend",
     average_rating: 4.8,
+    ratings: [5, 4, 5],
     available_slots: [
       { date_time: "2025-04-06T14:00:00Z", status: "available" }
     ],
@@ -182,6 +186,7 @@ export const stylists: Stylist[] = [
     profession: "Barber",
     shop_id: "urbanfade",
     services: ["Haircut", "Beard Styling"],
+    avatarURL: "https://i.pravatar.cc/250?u=carlosglow",
     ratings: [5, 5, 5],
     average_rating: 5.0,
     available_slots: [
@@ -196,6 +201,7 @@ export const stylists: Stylist[] = [
     profession: "Stylist",
     shop_id: "glamroom",
     services: ["Hair Styling", "Nail Art"],
+    avatarURL: "https://i.pravatar.cc/250?u=annestylist",
     ratings: [5, 5, 4],
     average_rating: 4.9,
     available_slots: [

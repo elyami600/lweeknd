@@ -4,6 +4,7 @@ export interface Stylist {
     profession: string;
     shop_id: string | null;
     services: string[];
+    avatarURL: string;
     ratings: number[];
     average_rating: number;
     available_slots: {

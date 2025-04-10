@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga';
 import userReducer from "./slices/UserSlice"
 import ServiceCenterReducer from "./slices/ServiceCenterSlice" 
+import stylistReducer from "./slices/StylistSlice"
+import BookingReducer  from './slices/BookingSlice';
 
 import rootSaga from './rootSaga'
 
@@ -11,7 +13,9 @@ const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
   reducer: {
     users: userReducer,
-    servicecenter: ServiceCenterReducer
+    servicecenter: ServiceCenterReducer,
+    stylists: stylistReducer,
+    booking : BookingReducer
 
   },
   middleware: (getDefaultMiddleware) =>

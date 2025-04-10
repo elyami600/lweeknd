@@ -45,7 +45,10 @@ const ServiceCenterProfile = () => {
     const displayName = item.replace(/([a-z])([A-Z])/g, "$1 $2"); // "johnDoe" → "john Doe"
 
     return (
-      <TouchableOpacity style={styles.card}>
+      <TouchableOpacity style={styles.card}
+       //onPress={() => router.push({ pathname: "/BookingSlot", params: { id: item } })}
+      onPress={() => router.push({ pathname: "/StylistProfile", params: { id: item } })}
+      >
         <Image
           source={{ uri: `https://i.pravatar.cc/100?u=${item}` }}
           style={styles.avatar}
