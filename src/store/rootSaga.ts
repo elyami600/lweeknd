@@ -14,8 +14,7 @@ function* loadInitialData() {
     yield put(receiveServiceCenters(serviceCenters))
     yield put(receiveStylists(stylists))
     yield put(receiveBookings(bookings))
-   // yield put(setAuthedUser(user))
-
+    yield put(setAuthedUser(user))
 
 }
 

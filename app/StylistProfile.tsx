@@ -1,2 +1,2 @@
 
-export { default } from "@/src/components/screens/StylistProfile";
+export { default } from "@/src/components/screens/StylistProfileScreen";

@@ -24,7 +24,7 @@ const StylistProfile: React.FC = () => {
     Object.values(state.stylists.stylists)
   );
   const bookings = useSelector((state: RootState) =>
-    Object.values(state.booking.bookings)
+    Object.values(state.bookings.bookings)
   );
 
   const stylist = useMemo(

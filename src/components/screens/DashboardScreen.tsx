@@ -14,6 +14,7 @@ import {
 import { useSelector } from "react-redux";
 import { RootState } from "@/src/store/store";
 import { useRouter } from "expo-router";
+import Search from "./feature/Search/Search";
 
 const screenWidth = Dimensions.get("window").width;
 const spacing = 16;
@@ -32,6 +33,8 @@ const HomeScreen: React.FC = () => {
         <Text style={styles.title}>Explore Nearby Services</Text>
         <Text style={styles.subtitle}>Top-rated salons, barbers & beauty centers</Text>
 
+        <Search />
+
         {centerList.length > 0 ? (
           <FlatList
             data={centerList}
@@ -47,12 +50,8 @@ const HomeScreen: React.FC = () => {
               >
                 <Image source={{ uri: item.avatarURL }} style={styles.image} />
                 <View style={styles.cardContent}>
-                  <Text style={styles.name} numberOfLines={1}>
-                    {item.name}
-                  </Text>
-                  <Text style={styles.location} numberOfLines={1}>
-                    📍 {item.location}
-                  </Text>
+                  <Text style={styles.name} numberOfLines={1}>{item.name}</Text>
+                  <Text style={styles.location} numberOfLines={1}>📍 {item.location}</Text>
                   <View style={styles.ratingRow}>
                     <Text style={styles.details}>{item.type}</Text>
                     <Text style={styles.rating}>⭐ {item.average_rating.toFixed(1)}</Text>
@@ -71,23 +70,21 @@ const HomeScreen: React.FC = () => {
 
 export default HomeScreen;
 
-
-
 const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
-    backgroundColor: "#f9f9f9",
+    backgroundColor: "#fff",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   container: {
     flex: 1,
-    padding: spacing,
-    backgroundColor: "#f9f9f9",
+    paddingHorizontal: spacing,
   },
   title: {
     fontSize: 24,
     fontWeight: "700",
     textAlign: "center",
+    marginTop: 10,
     marginBottom: 6,
     color: "#111",
   },
@@ -124,8 +121,6 @@ const styles = StyleSheet.create({
     height: 120,
     width: "100%",
     resizeMode: "cover",
-    borderTopLeftRadius: 14,
-    borderTopRightRadius: 14,
   },
   cardContent: {
     padding: 10,

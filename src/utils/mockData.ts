@@ -46,6 +46,8 @@ export interface Booking {
   price: number;
   scheduled_datetime: string;
   status: string;
+  
+
 }
 
 export const users: User[] = [
@@ -255,6 +257,12 @@ export const bookings: Booking[] = [
   }
 ];
 
+function generateUID() {
+  return `bk_${Math.random().toString(36).substring(2, 9)}_${Date.now()}`;
+}
+
+
+
  
 export function _getUsers(): Promise<User[]> {
   return Promise.resolve(users);
@@ -281,4 +289,22 @@ export function _getStylist(): Promise<Stylist[]> {
 
 export function _getBooking(): Promise<Booking[]> {
   return Promise.resolve(bookings);
+}
+
+
+export function _saveBooking(newBooking: Omit<Booking, "id">): Promise<Booking> {
+  return new Promise((resolve, reject) => {
+    if (!newBooking.user_id || !newBooking.service || !newBooking.stylist_id) {
+      return reject("Missing booking information.");
+    }
+
+    const booking: Booking = {
+      id: generateUID(),
+      ...newBooking,
+      scheduled_datetime: new Date(newBooking.scheduled_datetime).toISOString(),
+    };
+
+    bookings.push(booking); 
+    resolve(booking);
+  });
 }

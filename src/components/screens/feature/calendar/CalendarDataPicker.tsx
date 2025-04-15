@@ -1,4 +1,8 @@
+import { createBooking } from '@/src/store/slices/BookingSlice';
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
+import { RootState, AppDispatch } from "@/src/store/store";
+
 import {
   View,
   Text,
@@ -9,6 +13,10 @@ import {
   FlatList,
 } from 'react-native';
 import DatePicker, { getFormatedDate } from 'react-native-modern-datepicker';
+
+
+import { useDispatch } from 'react-redux';
+
 
 const generateTimeSlots = (): string[] => {
   const slots: string[] = [];
@@ -29,6 +37,11 @@ const generateTimeSlots = (): string[] => {
 };
 
 const CalendarDataPicker: React.FC = () => {
+  const dispatch = useDispatch<any>();
+
+
+    const authedUser = useSelector((state: RootState) => state.users.authedUser);
+
   const today: string = getFormatedDate(new Date(), 'YYYY/MM/DD');
   const [date, setDate] = useState<string>(today);
   const [time, setTime] = useState<string>('');
@@ -37,6 +50,12 @@ const CalendarDataPicker: React.FC = () => {
 
   const timeSlots = generateTimeSlots();
 
+  
+  const users = useSelector((state: RootState) => state.users.authedUser);
+  const BookingSlice = useSelector((state: RootState) => state.bookings.bookings);
+  console.log(" booking ", BookingSlice )
+
+  
   const handleDateChange = (selectedDate: string): void => {
     setDate(selectedDate);
     setOpenDatePicker(false);
@@ -46,6 +65,39 @@ const CalendarDataPicker: React.FC = () => {
     setTime(selectedTime);
     setOpenTimePicker(false);
   };
+
+  const handleCreateBooking = (
+    selectedDate: string,
+    selectedTime: string,
+    selectedService: string,
+    price: number
+  ): void => {
+    if (!selectedDate || !selectedTime || !selectedService || !price) {
+      alert("Please complete all booking details.");
+      return;
+    }
+  
+    const scheduled_datetime = `${selectedDate}T${selectedTime}:00`;
+  
+    const bookingData = {
+      user_id: "sarah@example.com", // ✅ Replace with actual auth user
+      service_center_id: "classiccuts", // ✅ Should come from stylist.shop_id
+      stylist_id: "johnbarber",         // ✅ Should come from stylist.id
+      service: selectedService,
+      price,
+      scheduled_datetime,
+      status: "pending",
+    };
+  
+    dispatch(createBooking(bookingData))
+    .then(() => alert("🎉 Your slot has been booked!"))
+    .catch((err: string) => alert("Booking failed: " + err));
+     
+  };
+  
+  
+  
+  
 
   return (
     <View style={styles.container}>
@@ -116,6 +168,12 @@ const CalendarDataPicker: React.FC = () => {
           </View>
         </View>
       </Modal>
+      {date && time && (
+        <TouchableOpacity style={styles.bookButton} onPress={() => handleCreateBooking}>
+          <Text style={styles.bookText}>Book Slot</Text>
+        </TouchableOpacity>
+      )}
+            
     </View>
   );
 };
@@ -196,5 +254,17 @@ const styles = StyleSheet.create({
   timeSlotText: {
     fontSize: 16,
     color: '#333',
+  },
+  bookButton: {
+    backgroundColor: '#ff6347',
+    paddingVertical: 14,
+    borderRadius: 10,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  bookText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });

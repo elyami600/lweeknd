@@ -7,5 +7,6 @@ export interface Booking {
     price: number;
     scheduled_datetime: string;
     status: string;
+   
   }
   

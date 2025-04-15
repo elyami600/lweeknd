@@ -46,8 +46,8 @@ const ServiceCenterProfile = () => {
 
     return (
       <TouchableOpacity style={styles.card}
-       //onPress={() => router.push({ pathname: "/BookingSlot", params: { id: item } })}
-      onPress={() => router.push({ pathname: "/StylistProfile", params: { id: item } })}
+       onPress={() => router.push({ pathname: "/BookingSlot", params: { id: item } })}
+      // onPress={() => router.push({ pathname: "/StylistProfile", params: { id: item } })}
       >
         <Image
           source={{ uri: `https://i.pravatar.cc/100?u=${item}` }}
@@ -89,7 +89,7 @@ const ServiceCenterProfile = () => {
           </Text>
         }
       />
-
+      
       {/* Back Button at Bottom */}
       <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
         <Ionicons name="arrow-back" size={20} color="#fff" />

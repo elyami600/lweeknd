@@ -58,6 +58,7 @@ const MyBottomTabNavigator = () => {
         })}
       >
         <Tab.Screen name="Explore"  component={UserScreen} />
+        <Tab.Screen name="Explore"  component={UserScreen} />
         <Tab.Screen name="About"    component={AboutScreen} />
       </Tab.Navigator>
    

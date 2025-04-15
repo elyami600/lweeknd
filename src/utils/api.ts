@@ -3,7 +3,8 @@ import {
   _getUser,
   _getServiceCenters,
   _getStylist,
-  _getBooking
+  _getBooking,
+  _saveBooking
 } from "./mockData";
 
 import { User } from "../types/User";
@@ -57,3 +58,11 @@ export function getAllStylist(): Promise<Stylist[]> {
 export function getAllBooking(): Promise<Booking[]> {
   return _getBooking()
 }
+
+export function saveBooking(newBooking: Omit<Booking, "id">): Promise<Booking> {
+  return _saveBooking(newBooking);
+}
+
+// export function saveBooking(newBooking: Omit<Booking, "id">): Promise<Booking[]> {
+//   return _saveBooking(newBooking).then((booking) => [booking]);
+// }

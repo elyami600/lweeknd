@@ -1,32 +1,37 @@
-import { configureStore } from '@reduxjs/toolkit'
+// store/store.ts
+
+import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import userReducer from "./slices/UserSlice"
-import ServiceCenterReducer from "./slices/ServiceCenterSlice" 
-import stylistReducer from "./slices/StylistSlice"
-import BookingReducer  from './slices/BookingSlice';
 
-import rootSaga from './rootSaga'
+// Reducers
+import userReducer from './slices/UserSlice';
+import serviceCenterReducer from './slices/ServiceCenterSlice';
+import stylistReducer from './slices/StylistSlice';
+import bookingReducer from './slices/BookingSlice';
 
+// Root saga
+import rootSaga from './rootSaga';
 
+// Initialize the Saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
+// Create the store
 const store = configureStore({
   reducer: {
     users: userReducer,
-    servicecenter: ServiceCenterReducer,
+    servicecenter: serviceCenterReducer,
     stylists: stylistReducer,
-    booking : BookingReducer
-
+    bookings: bookingReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
-})
+});
 
+// Run the root saga
 sagaMiddleware.run(rootSaga);
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {users: UsersState}
-export type AppDispatch = typeof store.dispatch // ✅ Fixed the typo
+// Types for state and dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
-export default store; // ✅ Exporting the store
+export default store;

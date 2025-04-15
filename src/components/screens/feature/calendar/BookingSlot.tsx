@@ -16,7 +16,7 @@ import CalendarDataPicker from "./CalendarDataPicker";
 
 const serviceColors = ["#f87171", "#a78bfa", "#34d399", "#38bdf8", "#fb923c"];
 
-const BookingSlots: React.FC = () => {
+const BookingSlots: React.FC = ({}) => {
   const router = useRouter();
   const { id } = useLocalSearchParams();
   const stylistId = Array.isArray(id) ? id[0] : id;
@@ -29,6 +29,7 @@ const BookingSlots: React.FC = () => {
     return stylists.find((s: any) => s.id === stylistId);
   }, [stylists, stylistId]);
 
+    const users = useSelector((state: RootState) => state.users.authedUser);
   if (!stylist) {
     return (
       <SafeAreaView style={styles.container}>
@@ -90,11 +91,13 @@ const BookingSlots: React.FC = () => {
 
         {/* Calendar + Book Button */}
         <View style={styles.content}>
-          <CalendarDataPicker />
+          <CalendarDataPicker
+        //  stylistId={stylist.id}
+        //  shopId={stylist.shop_id!}
+        //  service={"Haircut"}
+        //  price={stylist.pricing["Haircut"]}
+           />
 
-          <TouchableOpacity style={styles.bookButton} onPress={() => console.log("Booking slot...")}>
-            <Text style={styles.bookText}>Book Slot</Text>
-          </TouchableOpacity>
         </View>
       </ScrollView>
 

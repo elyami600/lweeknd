@@ -7,11 +7,15 @@ import AboutScreen from '@/src/components/screens/AboutScreen';
 import UserScreen from '@/src/components/screens/UsersScreen';
 import DashboardScreen from '@/src/components/screens/DashboardScreen';
 
+
 import Feather from '@expo/vector-icons/Feather';
 import { users } from '@/src/utils/mockData';
+import StylistProfile from '../StylistProfile';
+
 
 export type RootTabParamList = {
   Explore: undefined;
+  Stylist: undefined;
   About: undefined;
 };
 
@@ -60,6 +64,7 @@ const MyBottomTabNavigator = () => {
         })}
       >
         <Tab.Screen name="Explore"  component={DashboardScreen} />
+        <Tab.Screen name="Stylist"  component={StylistProfile} />
         <Tab.Screen name="About"    component={AboutScreen} />
       </Tab.Navigator>
    
