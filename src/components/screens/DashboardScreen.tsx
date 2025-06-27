@@ -69,7 +69,6 @@ const HomeScreen: React.FC = () => {
 };
 
 export default HomeScreen;
-
 const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
@@ -86,12 +85,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10,
     marginBottom: 6,
-    color: "#111",
+    color: "#A3512B",
   },
   subtitle: {
     fontSize: 15,
     textAlign: "center",
-    color: "#666",
+    color: "#A3512B",
     marginBottom: 18,
   },
   listContainer: {
@@ -128,7 +127,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#111",
+    color: "#A3512B",
   },
   location: {
     fontSize: 13,
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
   },
   rating: {
     fontSize: 13,
-    color: "#f39c12",
+    color: "#A3512B",
     fontWeight: "500",
   },
   details: {

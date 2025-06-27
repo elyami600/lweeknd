@@ -3,7 +3,7 @@
 // import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
 // import { SafeAreaProvider } from "react-native-safe-area-context";
 // import { Provider } from "react-redux";
-// import store from "@/src/store/index";
+// import { store } from "@/src/store/store"; // Adjust 
 // import RootNavigator from "@/src/components/navigaton/RootNavigator"
 
 // const App: React.FC = () => {
@@ -30,3 +30,13 @@
 
 // export default App;
 
+import React from "react";
+import { View, Text } from "react-native";
+
+const IndexScreen = () => (
+  <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <Text>Welcome to the Explore Tab!</Text>
+  </View>
+);
+
+export default IndexScreen;

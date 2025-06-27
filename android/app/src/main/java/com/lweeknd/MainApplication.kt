@@ -1,4 +1,4 @@
-package com.elyami600.lweeknd
+package com.lweeknd
 
 import android.app.Application
 import android.content.res.Configuration

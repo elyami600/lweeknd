@@ -179,7 +179,6 @@ const CalendarDataPicker: React.FC = () => {
 };
 
 export default CalendarDataPicker;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -192,6 +191,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginBottom: 30,
     textAlign: 'center',
+    color: '#333',
   },
   selectionCard: {
     borderWidth: 1,
@@ -200,10 +200,11 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 20,
     marginBottom: 20,
+    backgroundColor: '#fefefe',
   },
   cardTitle: {
     fontSize: 14,
-    color: '#888',
+    color: '#999',
   },
   cardValue: {
     fontSize: 18,
@@ -236,13 +237,14 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 12,
     textAlign: 'center',
+    color: '#222',
   },
   closeButton: {
     marginTop: 10,
     alignSelf: 'center',
   },
   closeButtonText: {
-    color: '#ff5a5f',
+    color: '#ff6b57',
     fontWeight: '500',
   },
   timeSlot: {
@@ -256,7 +258,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   bookButton: {
-    backgroundColor: '#ff6347',
+    backgroundColor: '#ff6b57',
     paddingVertical: 14,
     borderRadius: 10,
     marginTop: 20,

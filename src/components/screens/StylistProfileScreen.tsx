@@ -118,6 +118,7 @@ const StylistProfile: React.FC = () => {
 export default StylistProfile;
 
 
+// Updated accent color version
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
   },
   superhost: {
     fontSize: 14,
-    color: "#ff6347",
+    color: "#A3512B", // updated color
     fontWeight: "500",
     marginBottom: 8,
   },
@@ -218,7 +219,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#ff6347",
+    backgroundColor: "#A3512B", // updated color
     paddingVertical: 14,
     paddingHorizontal: 20,
     borderRadius: 8,
