@@ -1,5 +1,42 @@
-# Welcome to your Expo app 👋
+# LongWeeknd 📅💈
 
+**LongWeeknd** is a mobile booking platform built with **React Native**, **TypeScript**, and **Redux Toolkit**. It connects customers with barbershops, salons, and tattoo studios, making it easy to book appointments, browse services, and manage stylist schedules.
+
+---
+
+## 🔥 Features
+
+- 🔐 **Authentication**
+  - Email/password login
+  - Google Sign-in
+- 🧑‍🎨 **Stylist Profiles**
+  - View available stylists and their services
+  - Ratings, prices, and descriptions
+- 📅 **Appointment Booking**
+  - Select date and time slots via a modern calendar picker
+  - Book appointments with preferred stylist
+- 💇 **Service Management**
+  - Services by category (barbering, hair styling, tattoos, etc.)
+  - Dynamic pricing and availability
+- 💬 **Role-Based Views**
+  - User and stylist dashboards
+- 🎨 **Modern UI**
+  - Built with Expo and styled using Tailwind-like custom utilities
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React Native (Expo), TypeScript
+- **State Management:** Redux Toolkit
+- **Navigation:** Expo Router / React Navigation
+- **Date Picker:** `react-native-modern-datepicker`
+- **Authentication:** Custom logic + Google Sign-In
+- **Backend:** Mock API (easy to integrate real services)
+
+
+
+# Welcome to your Expo app 👋
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
