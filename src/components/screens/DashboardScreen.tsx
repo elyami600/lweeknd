@@ -26,14 +26,25 @@ const HomeScreen: React.FC = () => {
   const serviceCenters = useSelector((state: RootState) => state.servicecenter.serviceCenters);
   const centerList = useMemo(() => Object.values(serviceCenters), [serviceCenters]);
 
+  const authedUser = useSelector((state: RootState) => state.users.authedUser);
+  console.log("authedUser HomeScreen", authedUser);
+
   return (
     <SafeAreaView style={styles.safeContainer}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <View style={styles.container}>
         <Text style={styles.title}>Explore Nearby Services</Text>
         <Text style={styles.subtitle}>Top-rated salons, barbers & beauty centers</Text>
+        {authedUser && (
+          <Text style={{ textAlign: "center", color: "#A3512B", marginBottom: 10 }}>
+            Welcome, {authedUser}!
+          </Text>
+        )}
 
-        <Search />
+        {/* Search Component */}
+        <View>
+          <Search />
+        </View>
 
         {centerList.length > 0 ? (
           <FlatList
@@ -44,20 +55,20 @@ const HomeScreen: React.FC = () => {
             columnWrapperStyle={styles.row}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
-              <TouchableOpacity
+                <TouchableOpacity
                 style={[styles.card, { width: cardWidth }]}
-                onPress={() => router.push({ pathname: "/ServiceCenterProfile", params: { id: item.id } })}
-              >
+                 onPress={() => router.push({ pathname: "/service-center", params: { id: item.id } })}
+                >
                 <Image source={{ uri: item.avatarURL }} style={styles.image} />
                 <View style={styles.cardContent}>
                   <Text style={styles.name} numberOfLines={1}>{item.name}</Text>
                   <Text style={styles.location} numberOfLines={1}>📍 {item.location}</Text>
                   <View style={styles.ratingRow}>
-                    <Text style={styles.details}>{item.type}</Text>
-                    <Text style={styles.rating}>⭐ {item.average_rating.toFixed(1)}</Text>
+                  <Text style={styles.details}>{item.type}</Text>
+                  <Text style={styles.rating}>⭐ {item.average_rating.toFixed(1)}</Text>
                   </View>
                 </View>
-              </TouchableOpacity>
+                </TouchableOpacity>
             )}
           />
         ) : (

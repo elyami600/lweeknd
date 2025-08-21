@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
-const Search= () => {
+const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (

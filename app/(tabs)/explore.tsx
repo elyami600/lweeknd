@@ -1,5 +1,7 @@
 // import { StyleSheet, Image, Platform } from 'react-native';
 
+import { View, Text } from "react-native";
+
 // import { Collapsible } from '@/components/Collapsible';
 // import { ExternalLink } from '@/components/ExternalLink';
 // import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -107,3 +109,14 @@
 //     gap: 8,
 //   },
 // });
+
+
+export default function ExploreScreen() {
+    return(
+        <View>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Explore Screen</Text>
+            </View>
+        </View>
+    )
+}

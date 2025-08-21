@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
 import store from "@/src/store/store"; 
-import RootNavigator from "@/src/components/navigaton/RootNavigator"
+import RootNavigator from "@/src/components/navigation/RootNavigator"
 
 const App: React.FC = () => {
   return (

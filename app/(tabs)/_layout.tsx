@@ -5,15 +5,19 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 import DashboardScreen from '@/src/components/screens/DashboardScreen';
 import AboutScreen from '@/src/components/screens/AboutScreen';
-import StylistProfile from '../StylistProfile';
-// import AuthScreen from '@/src/components/screens/login/AuthScreen';
+import StylistProfile from './stylist';
+import LoginScreen from '@/src/components/screens/feature/login/LoginScreen';
+import HomeScreen from '@/src/components/screens/DashboardScreen';
+
 
 export type RootTabParamList = {
   Explore: undefined;
   Stylist: undefined;
   About: undefined;
+  Login: undefined; 
+
   
-   // Add Login screen
+
 };
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
@@ -51,14 +55,11 @@ const MyBottomTabNavigator = () => {
         headerShown: false,
       })}
     >
+       
       <Tab.Screen name="Explore" component={DashboardScreen} />
       <Tab.Screen name="Stylist" component={StylistProfile} />
       <Tab.Screen name="About" component={AboutScreen} />
-
-
-    
-
-    
+      <Tab.Screen name="Login" component={LoginScreen} /> 
     </Tab.Navigator>
   );
 };

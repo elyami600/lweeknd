@@ -53,7 +53,7 @@ const CalendarDataPicker: React.FC = () => {
   
   const users = useSelector((state: RootState) => state.users.authedUser);
   const BookingSlice = useSelector((state: RootState) => state.bookings.bookings);
-  console.log(" booking ", BookingSlice )
+ // console.log(" booking ", BookingSlice )
 
   
   const handleDateChange = (selectedDate: string): void => {

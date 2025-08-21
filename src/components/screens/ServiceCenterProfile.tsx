@@ -16,10 +16,13 @@ import { Ionicons } from "@expo/vector-icons";
 const ServiceCenterProfile = () => {
   const router = useRouter();
   const { id } = useLocalSearchParams();
+  
 
   const serviceCenters = useSelector(
     (state: RootState) => state.servicecenter.serviceCenters
   );
+  console.log("Route params id:", id);
+ console.log("Available service centers:", serviceCenters);
 
   const serviceCenterId = Array.isArray(id) ? id[0] : id;
 
@@ -46,7 +49,7 @@ const ServiceCenterProfile = () => {
 
     return (
       <TouchableOpacity style={styles.card}
-       onPress={() => router.push({ pathname: "/BookingSlot", params: { id: item } })}
+       onPress={() => router.push({ pathname: "/booking-slot", params: { id: item } })}
       // onPress={() => router.push({ pathname: "/StylistProfile", params: { id: item } })}
       >
         <Image

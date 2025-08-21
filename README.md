@@ -2,6 +2,8 @@
 
 **LongWeeknd** is a mobile booking platform built with **React Native**, **TypeScript**, and **Redux Toolkit**. It connects customers with barbershops, salons, and tattoo studios, making it easy to book appointments, browse services, and manage stylist schedules.
 
+![LongWeeknd Promo](./longweeknd-promo.png)
+
 ---
 
 ## 🔥 Features

@@ -1,6 +1,7 @@
 // mockData.ts
 
 export interface User {
+  id: string; 
   name: string;
   password: string;
   email: string;
@@ -52,6 +53,7 @@ export interface Booking {
 
 export const users: User[] = [
   {
+    id: "JohnDoe",
     name: "John Doe",
     password: "password123",
     email: "johndoe@example.com",
@@ -59,6 +61,7 @@ export const users: User[] = [
     avatarURL: "https://i.pravatar.cc/250?u=john"
   },
   {
+    id: "JaneSmith",
     name: "Sarah Lee",
     password: "sarah123",
     email: "sarah@example.com",
@@ -66,6 +69,7 @@ export const users: User[] = [
     avatarURL: "https://i.pravatar.cc/250?u=sarah"
   },
   {
+    id: "CarlosRivera",
     name: "Carlos Rivera",
     password: "carlospass",
     email: "carlos@example.com",
@@ -73,6 +77,7 @@ export const users: User[] = [
     avatarURL: "https://i.pravatar.cc/250?u=carlos"
   },
   {
+    id: "EmilyTaylor",
     name: "Emily Taylor",
     password: "emily456",
     email: "emily@example.com",
@@ -80,6 +85,7 @@ export const users: User[] = [
     avatarURL: "https://i.pravatar.cc/250?u=emily"
   },
   {
+    id: "LiamBrown",
     name: "Liam Brown",
     password: "liam789",
     email: "liam@example.com",
